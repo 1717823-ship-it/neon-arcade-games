@@ -45,21 +45,10 @@
     body { display: grid; place-items: center; }
 
     .launcher-screen {
-      position: fixed;
-      inset: 0;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      padding: 40px 20px;
-      gap: 40px;
-      overflow-y: auto;
-      z-index: 10;
-      opacity: 1;
-      pointer-events: auto;
+      position: fixed; inset: 0; display: flex; flex-direction: column; align-items: center; justify-content: center;
+      padding: 40px 20px; gap: 40px; overflow-y: auto; z-index: 10; opacity: 1; pointer-events: auto;
       transition: opacity 0.4s ease, pointer-events 0.4s ease;
     }
-
     .launcher-screen.hidden { opacity: 0; pointer-events: none; }
 
     .launcher-header { text-align: center; animation: slideInDown 0.6s ease-out; }
@@ -106,7 +95,6 @@
     .game-card:hover::before { opacity: 1; }
 
     .game-icon { font-size: 3.5rem; margin-bottom: 16px; filter: drop-shadow(0 0 12px rgba(105,241,255,0.4)); }
-
     .game-title { font-size: 1.5rem; font-weight: 800; color: var(--cyan); margin: 0 0 8px; letter-spacing: 0.05em; }
     .game-description { font-size: 0.95rem; color: var(--muted); line-height: 1.5; margin: 0 0 16px; }
 
@@ -121,7 +109,6 @@
       color: #000; font-weight: 800; font-size: 0.95rem; letter-spacing: 0.08em; text-transform: uppercase; cursor: pointer;
       box-shadow: 0 10px 30px rgba(105,241,255,0.3); transition: all 0.3s ease;
     }
-
     .game-play-btn:hover { transform: scale(1.05); box-shadow: 0 15px 40px rgba(105,241,255,0.5); }
     .game-play-btn:active { transform: scale(0.98); }
 
@@ -147,28 +134,21 @@
     .back-btn:hover { background: rgba(255,106,232,0.3); box-shadow: 0 0 15px rgba(255,106,232,0.3); }
 
     .game-screen-content { flex: 1; display: flex; align-items: center; justify-content: center; overflow: hidden; position: relative; }
-
     canvas { display: block; width: 100%; height: 100%; }
 
-    .cyber-container {
-      display: flex; gap: 20px; padding: 20px; width: 100%; height: 100%; align-items: flex-start; justify-content: center;
-    }
-
+    .cyber-container { display: flex; gap: 20px; padding: 20px; width: 100%; height: 100%; align-items: flex-start; justify-content: center; }
     .cyber-board {
       position: relative; width: 900px; height: 600px; border-radius: 14px; border: 1px solid rgba(105,241,255,0.3);
       background: linear-gradient(180deg, rgba(2,2,6,0.8), rgba(6,6,12,1)); box-shadow: 0 20px 60px rgba(0,0,0,0.6), inset 0 0 30px rgba(105,241,255,0.05);
       overflow: hidden;
     }
-
     .cyber-sidebar {
       width: 280px; background: linear-gradient(180deg, rgba(20,25,40,0.8), rgba(15,18,32,0.95)); border: 1px solid rgba(105,241,255,0.2);
       border-radius: 14px; padding: 18px; display: flex; flex-direction: column; gap: 14px; max-height: 600px; overflow-y: auto;
     }
-
     .cyber-stat {
       background: rgba(105,241,255,0.1); border: 1px solid rgba(105,241,255,0.2); padding: 12px; border-radius: 10px; text-align: center;
     }
-
     .cyber-stat-label { font-size: 0.8rem; color: var(--muted); text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 6px; }
     .cyber-stat-value { font-size: 1.8rem; font-weight: 900; color: var(--gold); }
 
@@ -186,7 +166,6 @@
       .cyber-container { flex-direction: column; align-items: center; }
       .cyber-sidebar { width: 100%; max-height: none; }
     }
-
     @media (max-width: 768px) {
       .launcher-title { font-size: 2.5rem; }
       .launcher-subtitle { font-size: 1rem; }
@@ -231,7 +210,6 @@
     <div class="launcher-footer">🎮 Built with passion • All games run instantly • Pure JavaScript • No external dependencies</div>
   </div>
 
-  <!-- Game Screens -->
   <div class="game-screen" id="cyberCircuitScreen">
     <div class="game-screen-header">
       <h2 class="game-screen-title">🎮 Cyber Circuit - Tower Defense</h2>
@@ -241,9 +219,13 @@
       <div class="cyber-container">
         <div class="cyber-board"><canvas id="cyberCanvas" width="900" height="600"></canvas></div>
         <div class="cyber-sidebar">
-          <div class="cyber-stat"><div class="cyber-stat-label">Credits</div><div class="cyber-stat-value" id="cyberCredits">100</div></div>
+          <div class="cyber-stat"><div class="cyber-stat-label">Credits</div><div class="cyber-stat-value" id="cyberCredits">500</div></div>
           <div class="cyber-stat"><div class="cyber-stat-label">Wave</div><div class="cyber-stat-value" id="cyberWave">1</div></div>
-          <div class="cyber-stat"><div class="cyber-stat-label">Health</div><div class="cyber-stat-value" id="cyberHealth">20</div></div>
+          <div class="cyber-stat"><div class="cyber-stat-label">Lives</div><div class="cyber-stat-value" id="cyberHealth">20</div></div>
+          <div class="cyber-stat" style="background: rgba(255,106,232,0.1); border: 1px solid rgba(255,106,232,0.3);"><div class="cyber-stat-label">Gun Tower</div><div class="cyber-stat-value" style="color: var(--pink); font-size: 1.2rem;">$300</div></div>
+          <div class="cyber-stat" style="background: rgba(173,124,255,0.1); border: 1px solid rgba(173,124,255,0.3);"><div class="cyber-stat-label">Laser Tower</div><div class="cyber-stat-value" style="color: var(--purple); font-size: 1.2rem;">$600</div></div>
+          <div class="cyber-stat" style="background: rgba(105,241,255,0.1); border: 1px solid rgba(105,241,255,0.3);"><div class="cyber-stat-label">Hotkeys</div><div class="cyber-stat-value" style="color: var(--cyan); font-size: 1rem;">1 = Gun<br>2 = Laser</div></div>
+          <button class="game-play-btn" style="margin-top: 10px; font-size: 0.8rem; padding: 8px;" onclick="startWave()">START WAVE</button>
         </div>
       </div>
     </div>
@@ -301,7 +283,7 @@
 
   <script>
     const gamesData = [
-      { id: 'cyber-circuit', name: 'Cyber Circuit', icon: '🎮', description: 'Build towers and defend your circuit from waves of digital enemies', tags: ['Strategy','Tower Defense','Real-time'] },
+      { id: 'cyber-circuit', name: 'Cyber Circuit', icon: '🎮', description: 'BTD6-inspired tower defense with balloon enemies and neon towers', tags: ['Strategy','Tower Defense','Real-time'] },
       { id: 'neon-dodge', name: 'Neon Dodge', icon: '⚡', description: 'Navigate lanes and avoid incoming obstacles with perfect timing', tags: ['Arcade','Dodge','Reflex'] },
       { id: 'tag', name: 'Tag', icon: '🏃', description: 'Survive against a relentless AI chaser with increasing speed', tags: ['Survival','AI Battle','Endurance'] },
       { id: 'pong', name: 'Pong', icon: '🎯', description: 'Classic paddle-based arcade action against adaptive AI opponent', tags: ['Classic','Arcade','Action'] },
@@ -310,14 +292,8 @@
     ];
 
     const keysPressed = {};
-
-    window.addEventListener('keydown', (e) => {
-      keysPressed[e.key.toLowerCase()] = true;
-    });
-
-    window.addEventListener('keyup', (e) => {
-      keysPressed[e.key.toLowerCase()] = false;
-    });
+    window.addEventListener('keydown', e => { keysPressed[e.key.toLowerCase()] = true; });
+    window.addEventListener('keyup', e => { keysPressed[e.key.toLowerCase()] = false; });
 
     function initLauncher() {
       const grid = document.getElementById('gamesGrid');
@@ -371,83 +347,306 @@
 
     // ===== CYBER CIRCUIT =====
     let cyberRAF = null;
+    let cyberGameState = null;
+
+    function startWave() {
+      if (cyberGameState) {
+        cyberGameState.waveStarted = true;
+        cyberGameState.spawnTimer = 0;
+        cyberGameState.spawnCount = 0;
+      }
+    }
+
     function initCyberCircuit() {
       const canvas = document.getElementById('cyberCanvas');
       const ctx = canvas.getContext('2d');
       const creditsEl = document.getElementById('cyberCredits');
       const waveEl = document.getElementById('cyberWave');
       const healthEl = document.getElementById('cyberHealth');
-      const gridSize = 30;
-      const cols = Math.floor(canvas.width / gridSize);
-      const rows = Math.floor(canvas.height / gridSize);
 
       if (cyberRAF) cancelAnimationFrame(cyberRAF);
 
-      let gameState = { credits: 100, health: 20, wave: 1, towers: [], enemies: [], timer: 0, running: true };
+      const path = [
+        { x: -20, y: 150 },
+        { x: 150, y: 150 },
+        { x: 150, y: 300 },
+        { x: 400, y: 300 },
+        { x: 400, y: 100 },
+        { x: 700, y: 100 },
+        { x: 700, y: 450 },
+        { x: 920, y: 450 }
+      ];
 
-      function drawGrid() {
-        ctx.strokeStyle = 'rgba(105,241,255,0.1)'; ctx.lineWidth = 1;
-        for (let x = 0; x <= cols; x++) { ctx.beginPath(); ctx.moveTo(x * gridSize, 0); ctx.lineTo(x * gridSize, canvas.height); ctx.stroke(); }
-        for (let y = 0; y <= rows; y++) { ctx.beginPath(); ctx.moveTo(0, y * gridSize); ctx.lineTo(canvas.width, y * gridSize); ctx.stroke(); }
+      cyberGameState = {
+        credits: 500,
+        health: 20,
+        wave: 1,
+        towers: [],
+        enemies: [],
+        projectiles: [],
+        waveStarted: false,
+        spawnTimer: 0,
+        spawnCount: 0,
+        selectedTower: 'gun',
+        running: true
+      };
+
+      function drawPath() {
+        ctx.strokeStyle = 'rgba(105,241,255,0.35)';
+        ctx.lineWidth = 28;
+        ctx.lineCap = 'round';
+        ctx.lineJoin = 'round';
+        ctx.beginPath();
+        ctx.moveTo(path[0].x, path[0].y);
+        for (let i = 1; i < path.length; i++) ctx.lineTo(path[i].x, path[i].y);
+        ctx.stroke();
+      }
+
+      function spawnBalloon() {
+        const colorPool = ['#ff6ae8', '#69f1ff', '#ffd166', '#4af7b5', '#ad7cff'];
+        const color = colorPool[Math.floor(Math.random() * colorPool.length)];
+        cyberGameState.enemies.push({
+          x: path[0].x,
+          y: path[0].y,
+          pathIndex: 0,
+          progress: 0,
+          speed: 0.8 + cyberGameState.wave * 0.16,
+          health: 15 + cyberGameState.wave * 9,
+          maxHealth: 15 + cyberGameState.wave * 9,
+          radius: 16,
+          color,
+          stringOffset: Math.random() * 20
+        });
+      }
+
+      function getEnemyPosition(enemy) {
+        let total = 0;
+        let segment = enemy.pathIndex;
+        let remaining = enemy.progress;
+
+        while (segment < path.length - 1) {
+          const dx = path[segment + 1].x - path[segment].x;
+          const dy = path[segment + 1].y - path[segment].y;
+          const dist = Math.hypot(dx, dy);
+
+          if (total + dist >= remaining) {
+            const t = (remaining - total) / dist;
+            const x = path[segment].x + dx * t;
+            const y = path[segment].y + dy * t;
+            return { x, y, nextIndex: segment };
+          }
+
+          total += dist;
+          segment++;
+        }
+
+        const end = path[path.length - 1];
+        return { x: end.x, y: end.y, nextIndex: path.length - 2 };
+      }
+
+      function updateEnemies() {
+        for (let i = cyberGameState.enemies.length - 1; i >= 0; i--) {
+          const enemy = cyberGameState.enemies[i];
+          enemy.progress += enemy.speed;
+
+          if (enemy.progress >= 0) {
+            const pos = getEnemyPosition(enemy);
+            enemy.x = pos.x;
+            enemy.y = pos.y;
+          }
+
+          if (enemy.health <= 0) {
+            cyberGameState.credits += 50;
+            cyberGameState.enemies.splice(i, 1);
+            continue;
+          }
+
+          const last = path[path.length - 1];
+          if (Math.hypot(enemy.x - last.x, enemy.y - last.y) < 10) {
+            cyberGameState.health--;
+            cyberGameState.enemies.splice(i, 1);
+          }
+        }
+      }
+
+      function updateTowers() {
+        for (const tower of cyberGameState.towers) {
+          const targets = cyberGameState.enemies.filter(e => Math.hypot(e.x - tower.x, e.y - tower.y) < tower.range);
+          if (targets.length === 0) continue;
+
+          tower.cooldown--;
+          if (tower.cooldown <= 0) {
+            const target = targets[0];
+            cyberGameState.projectiles.push({
+              x: tower.x,
+              y: tower.y,
+              target: target,
+              speed: tower.type === 'gun' ? 7 : 8,
+              damage: tower.type === 'gun' ? 10 : 18,
+              color: tower.type === 'gun' ? '#69f1ff' : '#ad7cff'
+            });
+            tower.cooldown = tower.type === 'gun' ? 18 : 30;
+          }
+        }
+      }
+
+      function updateProjectiles() {
+        for (let i = cyberGameState.projectiles.length - 1; i >= 0; i--) {
+          const shot = cyberGameState.projectiles[i];
+          if (!shot.target || shot.target.health <= 0) {
+            cyberGameState.projectiles.splice(i, 1);
+            continue;
+          }
+
+          const dx = shot.target.x - shot.x;
+          const dy = shot.target.y - shot.y;
+          const dist = Math.hypot(dx, dy) || 1;
+
+          if (dist < 10) {
+            shot.target.health -= shot.damage;
+            cyberGameState.projectiles.splice(i, 1);
+          } else {
+            shot.x += (dx / dist) * shot.speed;
+            shot.y += (dy / dist) * shot.speed;
+          }
+        }
       }
 
       function drawTowers() {
-        for (const tower of gameState.towers) {
-          ctx.fillStyle = '#69f1ff';
-          ctx.fillRect(tower.x, tower.y, gridSize - 2, gridSize - 2);
-          ctx.fillStyle = 'rgba(105,241,255,0.3)';
-          ctx.beginPath(); ctx.arc(tower.x + gridSize / 2, tower.y + gridSize / 2, 80, 0, Math.PI * 2); ctx.fill();
+        for (const tower of cyberGameState.towers) {
+          ctx.fillStyle = tower.type === 'gun' ? '#ff6ae8' : '#ad7cff';
+          ctx.beginPath();
+          ctx.arc(tower.x, tower.y, 12, 0, Math.PI * 2);
+          ctx.fill();
+
+          ctx.strokeStyle = tower.type === 'gun' ? 'rgba(255,106,232,0.45)' : 'rgba(173,124,255,0.45)';
+          ctx.lineWidth = 1;
+          ctx.beginPath();
+          ctx.arc(tower.x, tower.y, tower.range, 0, Math.PI * 2);
+          ctx.stroke();
         }
       }
 
       function drawEnemies() {
-        for (const enemy of gameState.enemies) {
-          ctx.fillStyle = '#ff5d73';
-          ctx.fillRect(enemy.x, enemy.y, 16, 16);
+        for (const enemy of cyberGameState.enemies) {
+          ctx.strokeStyle = 'rgba(255,255,255,0.3)';
+          ctx.beginPath();
+          ctx.moveTo(enemy.x, enemy.y + 18);
+          ctx.lineTo(enemy.x, enemy.y + 44);
+          ctx.stroke();
+
+          ctx.fillStyle = enemy.color;
+          ctx.beginPath();
+          ctx.arc(enemy.x, enemy.y, enemy.radius, 0, Math.PI * 2);
+          ctx.fill();
+
+          ctx.strokeStyle = '#eaf4ff';
+          ctx.lineWidth = 2;
+          ctx.beginPath();
+          ctx.arc(enemy.x, enemy.y, enemy.radius + 3, 0, Math.PI * 2);
+          ctx.stroke();
+
+          const healthPercent = Math.max(0, enemy.health / enemy.maxHealth);
+          ctx.fillStyle = '#0b1220';
+          ctx.fillRect(enemy.x - 18, enemy.y - 24, 36, 6);
+          ctx.fillStyle = '#4af7b5';
+          ctx.fillRect(enemy.x - 18, enemy.y - 24, 36 * healthPercent, 6);
         }
       }
 
-      function spawnEnemy() {
-        const side = Math.floor(Math.random() * 4);
-        let x = 0, y = 0;
-        if(side === 0){ x = Math.random()*canvas.width; y = -20; }
-        else if(side === 1){ x = canvas.width + 20; y = Math.random()*canvas.height; }
-        else if(side === 2){ x = Math.random()*canvas.width; y = canvas.height + 20; }
-        else { x = -20; y = Math.random()*canvas.height; }
-        gameState.enemies.push({ x, y, health: 8 + gameState.wave * 2 });
+      function drawProjectiles() {
+        for (const shot of cyberGameState.projectiles) {
+          ctx.fillStyle = shot.color;
+          ctx.beginPath();
+          ctx.arc(shot.x, shot.y, 4, 0, Math.PI * 2);
+          ctx.fill();
+        }
       }
 
       function update() {
-        gameState.timer++;
-        if (gameState.timer > 140) { gameState.wave++; gameState.timer = 0; for (let i = 0; i < Math.min(2 + gameState.wave, 10); i++) spawnEnemy(); }
-        for (const enemy of gameState.enemies) {
-          enemy.x += enemy.health > 10 ? 0.6 : 0.9;
-          enemy.y += 0.4;
-          if (enemy.x > canvas.width || enemy.y > canvas.height) {
-            gameState.health = Math.max(0, gameState.health - 1);
-            if (gameState.health <= 0) gameState.running = false;
+        if (!cyberGameState.running) return;
+
+        if (cyberGameState.waveStarted) {
+          cyberGameState.spawnTimer++;
+          const balloonsThisWave = 6 + cyberGameState.wave * 2;
+          if (cyberGameState.spawnTimer > 55 && cyberGameState.spawnCount < balloonsThisWave) {
+            spawnBalloon();
+            cyberGameState.spawnCount++;
+            cyberGameState.spawnTimer = 0;
+          }
+
+          if (cyberGameState.spawnCount >= balloonsThisWave && cyberGameState.enemies.length === 0) {
+            cyberGameState.waveStarted = false;
+            cyberGameState.wave += 1;
           }
         }
-        creditsEl.textContent = gameState.credits;
-        waveEl.textContent = gameState.wave;
-        healthEl.textContent = gameState.health;
+
+        updateEnemies();
+        updateTowers();
+        updateProjectiles();
+
+        if (cyberGameState.health <= 0) cyberGameState.running = false;
+
+        creditsEl.textContent = Math.floor(cyberGameState.credits);
+        waveEl.textContent = cyberGameState.wave;
+        healthEl.textContent = cyberGameState.health;
       }
 
       function render() {
-        ctx.fillStyle = '#050816'; ctx.fillRect(0,0,canvas.width,canvas.height);
-        drawGrid(); drawTowers(); drawEnemies();
-        if (gameState.running) { update(); cyberRAF = requestAnimationFrame(render); }
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+        ctx.fillStyle = '#050816';
+        ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+        drawPath();
+        drawProjectiles();
+        drawTowers();
+        drawEnemies();
+
+        if (cyberGameState.running) {
+          update();
+          cyberRAF = requestAnimationFrame(render);
+        } else {
+          ctx.fillStyle = 'rgba(0,0,0,0.7)';
+          ctx.fillRect(0, 0, canvas.width, canvas.height);
+          ctx.fillStyle = '#ff5d73';
+          ctx.font = 'bold 40px Inter';
+          ctx.textAlign = 'center';
+          ctx.fillText('GAME OVER', canvas.width / 2, canvas.height / 2);
+        }
       }
 
       canvas.onclick = function(e) {
         const rect = canvas.getBoundingClientRect();
-        const x = Math.floor((e.clientX - rect.left) / gridSize) * gridSize;
-        const y = Math.floor((e.clientY - rect.top) / gridSize) * gridSize;
-        if (gameState.credits >= 30) {
-          gameState.towers.push({ x, y });
-          gameState.credits -= 30;
+        const x = (e.clientX - rect.left) * (canvas.width / rect.width);
+        const y = (e.clientY - rect.top) * (canvas.height / rect.height);
+
+        for (let i = cyberGameState.towers.length - 1; i >= 0; i--) {
+          const tower = cyberGameState.towers[i];
+          if (Math.hypot(x - tower.x, y - tower.y) < 18) {
+            cyberGameState.credits += Math.floor(tower.cost * 0.8);
+            cyberGameState.towers.splice(i, 1);
+            return;
+          }
+        }
+
+        const cost = cyberGameState.selectedTower === 'gun' ? 300 : 600;
+        if (cyberGameState.credits >= cost) {
+          cyberGameState.towers.push({
+            x, y,
+            type: cyberGameState.selectedTower,
+            range: cyberGameState.selectedTower === 'gun' ? 120 : 180,
+            cooldown: 0,
+            cost,
+            color: cyberGameState.selectedTower === 'gun' ? '#ff6ae8' : '#ad7cff'
+          });
+          cyberGameState.credits -= cost;
         }
       };
+
+      document.addEventListener('keydown', e => {
+        if (e.key === '1') cyberGameState.selectedTower = 'gun';
+        if (e.key === '2') cyberGameState.selectedTower = 'laser';
+      });
 
       render();
     }
@@ -457,7 +656,6 @@
     function initNeonDodge() {
       const canvas = document.getElementById('neonCanvas');
       const ctx = canvas.getContext('2d');
-
       if (neonRAF) cancelAnimationFrame(neonRAF);
 
       let lane = 1;
@@ -474,7 +672,7 @@
         const playerX = lane * (canvas.width / 3) + (canvas.width / 6) - 15;
         ctx.fillStyle = '#69f1ff'; ctx.fillRect(playerX, canvas.height - 50, 30, 30);
         ctx.fillStyle = '#39d0ff';
-        for (const obs of obstacles) { ctx.fillRect(obs.x, obs.y, 20, 20); }
+        for (const obs of obstacles) ctx.fillRect(obs.x, obs.y, 20, 20);
         ctx.fillStyle = '#39d0ff'; ctx.font = 'bold 20px Inter'; ctx.fillText('Score: ' + score, 20, 30);
       }
 
@@ -486,12 +684,8 @@
           lastSpawn = performance.now();
         }
 
-        if (keysPressed['arrowleft'] || keysPressed['a']) {
-          lane = Math.max(0, lane - 0.15);
-        }
-        if (keysPressed['arrowright'] || keysPressed['d']) {
-          lane = Math.min(2, lane + 0.15);
-        }
+        if (keysPressed['arrowleft'] || keysPressed['a']) lane = Math.max(0, lane - 0.15);
+        if (keysPressed['arrowright'] || keysPressed['d']) lane = Math.min(2, lane + 0.15);
 
         const playerX = lane * (canvas.width / 3) + (canvas.width / 6) - 15;
         for (let i = obstacles.length - 1; i >= 0; i--) {
@@ -503,12 +697,7 @@
         }
       }
 
-      function loop() {
-        draw();
-        update();
-        neonRAF = requestAnimationFrame(loop);
-      }
-
+      function loop() { draw(); update(); neonRAF = requestAnimationFrame(loop); }
       loop();
     }
 
@@ -517,7 +706,6 @@
     function initTag() {
       const canvas = document.getElementById('tagCanvas');
       const ctx = canvas.getContext('2d');
-
       if (tagRAF) cancelAnimationFrame(tagRAF);
 
       let player = { x: 100, y: 100, r: 16, vx: 0, vy: 0 };
@@ -535,19 +723,15 @@
 
       function update() {
         if (!running) return;
-
         score++;
 
-        player.vx = 0;
-        player.vy = 0;
-
+        player.vx = 0; player.vy = 0;
         if (keysPressed['arrowup'] || keysPressed['w']) player.vy -= playerSpeed;
         if (keysPressed['arrowdown'] || keysPressed['s']) player.vy += playerSpeed;
         if (keysPressed['arrowleft'] || keysPressed['a']) player.vx -= playerSpeed;
         if (keysPressed['arrowright'] || keysPressed['d']) player.vx += playerSpeed;
 
-        player.x += player.vx;
-        player.y += player.vy;
+        player.x += player.vx; player.y += player.vy;
         player.x = Math.max(player.r, Math.min(canvas.width - player.r, player.x));
         player.y = Math.max(player.r, Math.min(canvas.height - player.r, player.y));
 
@@ -561,20 +745,13 @@
       }
 
       function loop() {
-        draw();
-        update();
-        if (running) {
-          tagRAF = requestAnimationFrame(loop);
-        } else {
-          ctx.fillStyle = 'rgba(0,0,0,0.7)';
-          ctx.fillRect(0,0,canvas.width,canvas.height);
-          ctx.fillStyle = '#ff5d73';
-          ctx.font='bold 40px Inter';
-          ctx.textAlign='center';
-          ctx.fillText('CAUGHT!', canvas.width/2, canvas.height/2 - 20);
+        draw(); update();
+        if (running) tagRAF = requestAnimationFrame(loop);
+        else {
+          ctx.fillStyle = 'rgba(0,0,0,0.7)'; ctx.fillRect(0,0,canvas.width,canvas.height);
+          ctx.fillStyle = '#ff5d73'; ctx.font='bold 40px Inter'; ctx.textAlign='center'; ctx.fillText('CAUGHT!', canvas.width/2, canvas.height/2 - 20);
         }
       }
-
       loop();
     }
 
@@ -583,7 +760,6 @@
     function initPong() {
       const canvas = document.getElementById('pongCanvas');
       const ctx = canvas.getContext('2d');
-
       if (pongRAF) cancelAnimationFrame(pongRAF);
 
       const player = { x: 20, y: canvas.height/2 - 50, width: 10, height: 100, vy: 0 };
@@ -608,8 +784,7 @@
         player.y += player.vy;
         player.y = Math.max(0, Math.min(canvas.height - player.height, player.y));
 
-        ball.x += ball.vx;
-        ball.y += ball.vy;
+        ball.x += ball.vx; ball.y += ball.vy;
         if (ball.y < ball.r || ball.y > canvas.height - ball.r) ball.vy *= -1;
         if (ball.x - ball.r < player.x + player.width && ball.y > player.y && ball.y < player.y + player.height) ball.vx = Math.abs(ball.vx) + 1;
         if (ball.x + ball.r > ai.x && ball.y > ai.y && ball.y < ai.y + ai.height) ball.vx = -Math.abs(ball.vx) - 1;
@@ -620,12 +795,7 @@
         ai.y = Math.max(0, Math.min(canvas.height - ai.height, ai.y));
       }
 
-      function loop() {
-        draw();
-        update();
-        pongRAF = requestAnimationFrame(loop);
-      }
-
+      function loop() { draw(); update(); pongRAF = requestAnimationFrame(loop); }
       loop();
     }
 
@@ -634,7 +804,6 @@
     function initRetroScavenger() {
       const canvas = document.getElementById('retroCanvas');
       const ctx = canvas.getContext('2d');
-
       if (retroRAF) cancelAnimationFrame(retroRAF);
 
       let player = { x: canvas.width/2, y: canvas.height/2, r: 12, vx: 0, vy: 0 };
@@ -644,12 +813,8 @@
       let lives = 3;
       const playerSpeed = 6;
 
-      for (let i = 0; i < 5; i++) {
-        collectibles.push({ x: Math.random() * (canvas.width - 20) + 10, y: Math.random() * (canvas.height - 20) + 10, r: 8 });
-      }
-      for (let i = 0; i < 2; i++) {
-        hazards.push({ x: Math.random() * (canvas.width - 20) + 10, y: Math.random() * (canvas.height - 20) + 10, size: 12, vx: (Math.random() - 0.5) * 3, vy: (Math.random() - 0.5) * 3 });
-      }
+      for (let i = 0; i < 5; i++) collectibles.push({ x: Math.random() * (canvas.width - 20) + 10, y: Math.random() * (canvas.height - 20) + 10, r: 8 });
+      for (let i = 0; i < 2; i++) hazards.push({ x: Math.random() * (canvas.width - 20) + 10, y: Math.random() * (canvas.height - 20) + 10, size: 12, vx: (Math.random() - 0.5) * 3, vy: (Math.random() - 0.5) * 3 });
 
       function draw() {
         ctx.fillStyle = '#00121a'; ctx.fillRect(0,0,canvas.width,canvas.height);
@@ -661,22 +826,22 @@
       }
 
       function update() {
-        player.vx = 0;
-        player.vy = 0;
-
+        player.vx = 0; player.vy = 0;
         if (keysPressed['arrowup'] || keysPressed['w']) player.vy -= playerSpeed;
         if (keysPressed['arrowdown'] || keysPressed['s']) player.vy += playerSpeed;
         if (keysPressed['arrowleft'] || keysPressed['a']) player.vx -= playerSpeed;
         if (keysPressed['arrowright'] || keysPressed['d']) player.vx += playerSpeed;
 
-        player.x += player.vx;
-        player.y += player.vy;
+        player.x += player.vx; player.y += player.vy;
         player.x = Math.max(0, Math.min(canvas.width, player.x));
         player.y = Math.max(0, Math.min(canvas.height, player.y));
 
         for (let i = collectibles.length - 1; i >= 0; i--) {
           const c = collectibles[i];
-          if (Math.hypot(player.x - c.x, player.y - c.y) < player.r + c.r) { collectibles.splice(i,1); score += 10; if (collectibles.length < 3) collectibles.push({ x: Math.random() * (canvas.width - 20) + 10, y: Math.random() * (canvas.height - 20) + 10, r: 8 }); }
+          if (Math.hypot(player.x - c.x, player.y - c.y) < player.r + c.r) {
+            collectibles.splice(i, 1); score += 10;
+            if (collectibles.length < 3) collectibles.push({ x: Math.random() * (canvas.width - 20) + 10, y: Math.random() * (canvas.height - 20) + 10, r: 8 });
+          }
         }
 
         for (const h of hazards) {
@@ -685,12 +850,7 @@
         }
       }
 
-      function loop() {
-        draw();
-        update();
-        retroRAF = requestAnimationFrame(loop);
-      }
-
+      function loop() { draw(); update(); retroRAF = requestAnimationFrame(loop); }
       loop();
     }
 
@@ -699,7 +859,6 @@
     function initAsteroidBlaster() {
       const canvas = document.getElementById('asteroidCanvas');
       const ctx = canvas.getContext('2d');
-
       if (asteroidRAF) cancelAnimationFrame(asteroidRAF);
 
       let ship = { x: canvas.width / 2, y: canvas.height - 50, angle: 0, r: 15, angularVelocity: 0 };
@@ -741,19 +900,10 @@
       function draw() {
         ctx.fillStyle = '#0a0a14'; ctx.fillRect(0, 0, canvas.width, canvas.height);
         drawShip();
-
         ctx.fillStyle = '#ffff00';
-        for (const bullet of bullets) {
-          ctx.fillRect(bullet.x, bullet.y, 4, 10);
-        }
-
+        for (const bullet of bullets) ctx.fillRect(bullet.x, bullet.y, 4, 10);
         ctx.fillStyle = '#ff8800';
-        for (const ast of asteroids) {
-          ctx.beginPath();
-          ctx.arc(ast.x, ast.y, ast.size, 0, Math.PI * 2);
-          ctx.fill();
-        }
-
+        for (const ast of asteroids) { ctx.beginPath(); ctx.arc(ast.x, ast.y, ast.size, 0, Math.PI * 2); ctx.fill(); }
         ctx.fillStyle = '#00ff00'; ctx.font = 'bold 18px monospace'; ctx.fillText('SCORE: ' + score, 10, 20);
         ctx.fillStyle = '#ff0000'; ctx.fillText('HEALTH: ' + health, 10, 50);
       }
@@ -762,31 +912,24 @@
         ship.angularVelocity = 0;
         if (keysPressed['arrowleft'] || keysPressed['a']) ship.angularVelocity = -rotationSpeed;
         if (keysPressed['arrowright'] || keysPressed['d']) ship.angularVelocity = rotationSpeed;
-
         ship.angle += ship.angularVelocity;
 
-        if (keysPressed[' ']) {
-          bullets.push({ x: ship.x, y: ship.y, vx: Math.sin(ship.angle) * 6, vy: -Math.cos(ship.angle) * 6 });
-        }
+        if (keysPressed[' ']) bullets.push({ x: ship.x, y: ship.y, vx: Math.sin(ship.angle) * 6, vy: -Math.cos(ship.angle) * 6 });
 
         for (let i = bullets.length - 1; i >= 0; i--) {
-          bullets[i].x += bullets[i].vx;
-          bullets[i].y += bullets[i].vy;
+          bullets[i].x += bullets[i].vx; bullets[i].y += bullets[i].vy;
           if (bullets[i].y < 0 || bullets[i].x < 0 || bullets[i].x > canvas.width) bullets.splice(i, 1);
         }
 
         for (let i = asteroids.length - 1; i >= 0; i--) {
-          asteroids[i].x += asteroids[i].vx;
-          asteroids[i].y += asteroids[i].vy;
+          asteroids[i].x += asteroids[i].vx; asteroids[i].y += asteroids[i].vy;
           if (asteroids[i].x < 0 || asteroids[i].x > canvas.width) asteroids[i].vx *= -1;
           if (asteroids[i].y < 0 || asteroids[i].y > canvas.height) asteroids[i].vy *= -1;
 
           for (let j = bullets.length - 1; j >= 0; j--) {
             const dist = Math.hypot(asteroids[i].x - bullets[j].x, asteroids[i].y - bullets[j].y);
             if (dist < asteroids[i].size) {
-              bullets.splice(j, 1);
-              score += 10;
-              asteroids.splice(i, 1);
+              bullets.splice(j, 1); score += 10; asteroids.splice(i, 1);
               if (asteroids.length === 0) spawnAsteroids(Math.min(5, 3 + Math.floor(score / 100)));
               break;
             }
@@ -804,19 +947,12 @@
 
       function loop() {
         draw();
-        if (running) {
-          update();
-          asteroidRAF = requestAnimationFrame(loop);
-        } else {
-          ctx.fillStyle = 'rgba(0,0,0,0.7)';
-          ctx.fillRect(0, 0, canvas.width, canvas.height);
-          ctx.fillStyle = '#ff0000';
-          ctx.font = 'bold 40px monospace';
-          ctx.textAlign = 'center';
-          ctx.fillText('GAME OVER', canvas.width / 2, canvas.height / 2);
+        if (running) { update(); asteroidRAF = requestAnimationFrame(loop); }
+        else {
+          ctx.fillStyle = 'rgba(0,0,0,0.7)'; ctx.fillRect(0, 0, canvas.width, canvas.height);
+          ctx.fillStyle = '#ff0000'; ctx.font = 'bold 40px monospace'; ctx.textAlign = 'center'; ctx.fillText('GAME OVER', canvas.width / 2, canvas.height / 2);
         }
       }
-
       loop();
     }
 
